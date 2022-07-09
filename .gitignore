@@ -1,0 +1,8 @@
+﻿# Ignore a pasta "bin"
+/bin
+
+# Ignore a pasta "obj"
+/obj
+
+# Ignore a pasta "vs"
+/.vs
