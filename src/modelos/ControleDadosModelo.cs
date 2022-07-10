@@ -18,9 +18,6 @@ namespace ControleMedicamentos.src.modelos
         [ForeignKey("fk_medicamento")]
         public Medicamento Medicamento { get; set; }
 
-        [Required]
-        public int QuantidadeMedicamento { get; set; }
-
         #endregion
     }
 }

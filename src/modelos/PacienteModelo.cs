@@ -18,7 +18,7 @@ namespace ControleMedicamentos.src.modelos
         public string Nome { get; set; }
 
         [JsonIgnore, InverseProperty("Paciente")]
-        public List<Medicamento> MedicamentosTomados { get; set; }
+        public List<ControleDados> MedicamentosTomados { get; set; }
 
         #endregion
     }
