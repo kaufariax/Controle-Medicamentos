@@ -12,14 +12,16 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         #region Atributos
 
         private readonly CM_Contexto _contexto;
+        private readonly Paciente _modelo;
 
         #endregion
 
         #region Contrutores
 
-        public PacienteRepositorio(CM_Contexto contexto)
+        public PacienteRepositorio(CM_Contexto contexto, Paciente modelo)
         {
             _contexto = contexto;
+            _modelo = modelo;
         }
 
         #endregion
@@ -44,7 +46,6 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         public async Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nome)
         {
             return await _contexto.ControleDados
-                .Include(cm => cm.Paciente)
                 .Include(cm => cm.Medicamento)
                 .Where(cm => cm.Paciente.Nome == nome)
                 .ToListAsync();

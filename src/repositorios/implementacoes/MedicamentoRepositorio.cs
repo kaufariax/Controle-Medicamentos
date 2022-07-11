@@ -44,7 +44,6 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         public async Task<List<ControleDados>> PegarControlePacientesAsync(string nome)
         {
             return await _contexto.ControleDados
-                .Include(cm => cm.Medicamento)
                 .Include(cm => cm.Paciente)
                 .Where(cm => cm.Medicamento.Nome == nome)
                 .ToListAsync();

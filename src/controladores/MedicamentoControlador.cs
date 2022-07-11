@@ -39,7 +39,7 @@ namespace ControleMedicamentos.src.controladores
             return Ok(lista);
         }
 
-        [HttpGet("medicamentos")]
+        [HttpGet("pacientes")]
         public async Task<ActionResult> PegarControlePacientesAsync([FromQuery] string nome)
         {
             var lista = await _repositorio.PegarControlePacientesAsync(nome);
