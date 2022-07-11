@@ -7,7 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System;
+using System.IO;
+using System.Reflection;
 
 namespace ControleMedicamentos
 {
@@ -38,8 +41,18 @@ namespace ControleMedicamentos
             services.AddScoped<IMedicamento, MedicamentoRepositorio>();
             services.AddScoped<IControleDados, ControleDadosRepositorio>();
 
+            //Controladores
+            services.AddCors();
             services.AddControllers();
-        }
+
+            // Configuração Swagger
+            services.AddSwaggerGen(s =>
+            {
+                s.SwaggerDoc("v1", new OpenApiInfo { Title = "Controle de Medicamentos", Version = "v1" });
+            });
+
+     
+           }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, CM_Contexto contexto)
@@ -49,12 +62,26 @@ namespace ControleMedicamentos
             {
                 contexto.Database.EnsureCreated();
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => 
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ControleMedicamentos v1"));
             }
 
             contexto.Database.EnsureCreated();
             app.UseDeveloperExceptionPage();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ControleMedicamentos v1");
+                c.RoutePrefix = string.Empty;
+            });
 
+            // Rotas
             app.UseRouting();
+
+            app.UseCors(c => c
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+           );
 
             app.UseAuthorization();
 
