@@ -17,8 +17,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="src\repositorios\" />
-  </ItemGroup>
-
 </Project>

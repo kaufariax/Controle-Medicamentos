@@ -8,7 +8,6 @@ namespace ControleMedicamentos.src.repositorios
     {
         Task NovoMedicamentoAsync(Medicamento medicamento);
         Task<List<Medicamento>> PegarTodosMedicamentosAsync();
-
-        Task<List<ControleDados>> PegarControlePacientes(string nome);
+        Task<List<ControleDados>> PegarControlePacientesAsync(string nome);
     }
 }
