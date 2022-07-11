@@ -43,7 +43,6 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
 
         public async Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nome)
         {
-            //to-do: medicamentos vinculados ao paciente (verificar)
             return await _contexto.ControleDados
                 .Include(cm => cm.Paciente)
                 .Include(cm => cm.Medicamento)
