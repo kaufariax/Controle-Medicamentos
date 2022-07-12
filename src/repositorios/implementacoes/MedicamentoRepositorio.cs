@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.src.contexto;
+using ControleMedicamentos.src.dtos;
 using ControleMedicamentos.src.modelos;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
 
         #region Métodos
 
-        public async Task NovoMedicamentoAsync(Medicamento medicamento)
+        public async Task NovoMedicamentoAsync(MedicamentoDTO medicamento)
         {
             await _contexto.Medicamentos.AddAsync(new Medicamento
             {
@@ -44,6 +45,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         public async Task<List<ControleDados>> PegarControlePacientesAsync(string nome)
         {
             return await _contexto.ControleDados
+                .Include(cm => cm.Medicamento)
                 .Include(cm => cm.Paciente)
                 .Where(cm => cm.Medicamento.Nome.Contains(nome))
                 .ToListAsync();

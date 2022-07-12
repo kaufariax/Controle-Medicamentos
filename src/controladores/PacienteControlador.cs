@@ -1,4 +1,5 @@
-﻿using ControleMedicamentos.src.modelos;
+﻿using ControleMedicamentos.src.dtos;
+using ControleMedicamentos.src.modelos;
 using ControleMedicamentos.src.repositorios;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ namespace ControleMedicamentos.src.controladores
         }
 
         [HttpPost("registrar")]
-        public async Task<ActionResult> NovoPacienteAsync([FromBody] Paciente paciente)
+        public async Task<ActionResult> NovoPacienteAsync([FromBody] PacienteDTO paciente)
         {
             if (!ModelState.IsValid) return BadRequest();
 

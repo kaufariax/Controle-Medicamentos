@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.src.contexto;
+using ControleMedicamentos.src.dtos;
 using ControleMedicamentos.src.modelos;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,7 +27,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
 
         #region Métodos
 
-        public async Task NovoRegistroDadosAsync(ControleDados controleDados)
+        public async Task NovoRegistroDadosAsync(ControleDadosDTO controleDados)
         {
             if (!ExistePacienteNome(controleDados.Paciente.Nome)) throw new Exception("Nome do paciente não encontrado");
 

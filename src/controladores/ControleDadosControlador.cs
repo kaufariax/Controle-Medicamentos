@@ -1,6 +1,8 @@
-﻿using ControleMedicamentos.src.modelos;
+﻿using ControleMedicamentos.src.dtos;
+using ControleMedicamentos.src.modelos;
 using ControleMedicamentos.src.repositorios;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace ControleMedicamentos.src.controladores
@@ -30,12 +32,17 @@ namespace ControleMedicamentos.src.controladores
 
         [HttpPost("registerdados")]
 
-        public async Task<ActionResult> NovoRegistroDadosAsync([FromBody] ControleDados controleDados)
+        public async Task<ActionResult> NovoRegistroDadosAsync([FromBody] ControleDadosDTO controleDados)
         {
-            if (!ModelState.IsValid) return BadRequest();
-
-            await _repositorio.NovoRegistroDadosAsync(controleDados);
-            return Created($"api/ControleDados", controleDados);
+            try
+            {
+                await _repositorio.NovoRegistroDadosAsync(controleDados);
+                return Created($"api/ControleDados", controleDados);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(new { Mensagem = ex.Message });
+            }
         }
 
         #endregion

@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.src.contexto;
+using ControleMedicamentos.src.dtos;
 using ControleMedicamentos.src.modelos;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -27,7 +28,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
 
         #region Métodos
 
-        public async Task NovoPacienteAsync(Paciente paciente)
+        public async Task NovoPacienteAsync(PacienteDTO paciente)
         {
             await _contexto.Pacientes.AddAsync(new Paciente
             {
@@ -45,6 +46,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         public async Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nome)
         {
             return await _contexto.ControleDados
+                .Include(cm => cm.Paciente)
                 .Include(cm => cm.Medicamento)
                 .Where(cm => cm.Paciente.Nome == nome)
                 .ToListAsync();
