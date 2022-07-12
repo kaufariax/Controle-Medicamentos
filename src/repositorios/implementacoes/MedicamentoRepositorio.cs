@@ -45,7 +45,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         {
             return await _contexto.ControleDados
                 .Include(cm => cm.Paciente)
-                .Where(cm => cm.Medicamento.Nome == nome)
+                .Where(cm => cm.Medicamento.Nome.Contains(nome))
                 .ToListAsync();
         }
 

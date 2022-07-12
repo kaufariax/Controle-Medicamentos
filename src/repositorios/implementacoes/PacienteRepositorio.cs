@@ -1,6 +1,7 @@
 ﻿using ControleMedicamentos.src.contexto;
 using ControleMedicamentos.src.modelos;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,16 +13,14 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         #region Atributos
 
         private readonly CM_Contexto _contexto;
-        private readonly Paciente _modelo;
 
         #endregion
 
         #region Contrutores
 
-        public PacienteRepositorio(CM_Contexto contexto, Paciente modelo)
+        public PacienteRepositorio(CM_Contexto contexto)
         {
             _contexto = contexto;
-            _modelo = modelo;
         }
 
         #endregion
