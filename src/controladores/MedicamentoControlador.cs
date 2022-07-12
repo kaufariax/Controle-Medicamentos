@@ -1,6 +1,7 @@
 ﻿using ControleMedicamentos.src.dtos;
 using ControleMedicamentos.src.modelos;
 using ControleMedicamentos.src.repositorios;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -30,6 +31,14 @@ namespace ControleMedicamentos.src.controladores
 
         #region Métodos
 
+        /// <summary>
+        /// Pegar todos os medicamentos
+        /// </summary>
+        /// <returns>ActionResult</returns>
+        /// <response code="200">Lista de medicamentos</response>
+        /// <response code="204">Lista vazia</response>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Medicamento))]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet("todos")]
         public async Task<ActionResult> PegarTodosMedicamentosAsync()
         {
@@ -40,6 +49,14 @@ namespace ControleMedicamentos.src.controladores
             return Ok(lista);
         }
 
+        /// <summary>
+        /// Pegar todos os pacientes que tomaram o medicamento
+        /// </summary>
+        /// <returns>ActionResult</returns>
+        /// <response code="200">Lista de Controle de Dados com os Pacientes</response>
+        /// <response code="204">Lista vazia</response>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet("pacientes")]
         public async Task<ActionResult> PegarControlePacientesAsync([FromQuery] string nome)
         {
@@ -50,7 +67,23 @@ namespace ControleMedicamentos.src.controladores
             return Ok(lista);
         }
 
-        [HttpPost("registrar")]
+        /// <summary>
+        /// Criar novo Medicamento
+        /// </summary>
+        /// <param name="medicamento">Construtor para criar um medicamento</param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        ///     POST /api/Medicamentos
+        ///     {
+        ///        "nome": "Paracetamol"
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="201">Retorna medicamento criado</response>
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Medicamento))]
+        [HttpPost]
         public async Task<ActionResult> NovoMedicamentoAsync([FromBody] MedicamentoDTO medicamento)
         {
             if (!ModelState.IsValid) return BadRequest();

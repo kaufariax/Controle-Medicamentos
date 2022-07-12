@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamentos.src.repositorios.implementacoes
 {
+    /// <summary>
+    /// <para>Resumo: Classe responsavel por implementar IControleDados</para>
+    /// <para>Criado por: Kauane Farias</para>
+    /// <para>Versão: 1.0</para>
+    /// <para>Data: 12/07/2022</para>
+    /// </summary>
     public class ControleDadosRepositorio : IControleDados
     {
         #region Atributos
@@ -27,6 +33,11 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
 
         #region Métodos
 
+        /// <summary>
+        /// <para>Resumo: Método assíncrono para salvar um novo controle de dados</para>
+        /// </summary>
+        /// <param name="controleDados">Construtor para cadastrar um Controle de Dados</param>
+        /// <exception cref="Exception">Nome não pode ser nulo</exception>
         public async Task NovoRegistroDadosAsync(ControleDadosDTO controleDados)
         {
             if (!ExistePacienteNome(controleDados.Paciente.Nome)) throw new Exception("Nome do paciente não encontrado");

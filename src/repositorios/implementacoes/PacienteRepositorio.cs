@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamentos.src.repositorios.implementacoes
 {
+    /// <summary>
+    /// <para>Resumo: Classe responsavel por implementar IPaciente</para>
+    /// <para>Criado por: Kauane Farias</para>
+    /// <para>Versão: 1.0</para>
+    /// <para>Data: 12/07/2022</para>
+    /// </summary>
     public class PacienteRepositorio : IPaciente
     {
         #region Atributos
@@ -28,6 +34,10 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
 
         #region Métodos
 
+        /// <summary>
+        /// <para>Resumo: Método assíncrono para salvar um novo paciente</para>
+        /// </summary>
+        /// <param name="paciente">PacienteDTO</param>
         public async Task NovoPacienteAsync(PacienteDTO paciente)
         {
             await _contexto.Pacientes.AddAsync(new Paciente
@@ -38,11 +48,19 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
             await _contexto.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// <para>Resumo: Método assíncrono para pegar todos os pacientes</para>
+        /// </summary>
+        /// <return>Lista Paciente></return>
         public async Task<List<Paciente>> PegarTodosPacientesAsync()
         {
             return await _contexto.Pacientes.ToListAsync();
         }
 
+        /// <summary>
+        /// <para>Resumo: Método assíncrono para pegar todos os medicamentos tomados pelo paciente</para>
+        /// </summary>
+        /// <return>Lista ControleDados></return>
         public async Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nome)
         {
             return await _contexto.ControleDados

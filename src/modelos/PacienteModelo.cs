@@ -5,6 +5,12 @@ using System.Text.Json.Serialization;
 
 namespace ControleMedicamentos.src.modelos
 {
+    /// <summary>
+    /// <para>Resumo: Classe responsavel por representar tb_pacientes no banco.</para>
+    /// <para>Criado por: Kauane Farias</para>
+    /// <para>Versão: 1.0</para>
+    /// <para>Data: 12/07/2022</para>
+    /// </summary>
     [Table("tb_pacientes")]
     public class Paciente
     {

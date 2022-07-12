@@ -3,6 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ControleMedicamentos.src.contexto
 {
+    /// <summary>
+    /// <para>Resumo: Classe contexto, responsavel por carregar contexto e definir DbSets</para>
+    /// <para>Criado por: Kauane Farias</para>
+    /// <para>Versão: 1.0</para>
+    /// <para>Data: 12/07/2022</para>
+    /// </summary>
     public class CM_Contexto : DbContext
     {
         public DbSet<Paciente> Pacientes { get; set; }
