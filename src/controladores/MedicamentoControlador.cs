@@ -96,7 +96,7 @@ namespace ControleMedicamentos.src.controladores
         ///
         /// </remarks>
         /// <response code="201">Retorna medicamento criado.</response>
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Medicamento))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(MedicamentoDTO))]
         [HttpPost]
         public async Task<ActionResult> NovoMedicamentoAsync([FromBody] MedicamentoDTO medicamento)
         {
