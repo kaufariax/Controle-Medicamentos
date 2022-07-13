@@ -50,7 +50,7 @@ namespace ControleMedicamentos.src.controladores
         }
 
         /// <summary>
-        /// Pegar todos os pacientes que tomaram o medicamento
+        /// Pegar lista de pacientes que tomaram o medicamento
         /// </summary>
         /// <returns>ActionResult</returns>
         /// <response code="200">Lista de Controle de Dados com os Pacientes</response>
@@ -63,6 +63,20 @@ namespace ControleMedicamentos.src.controladores
             var lista = await _repositorio.PegarControlePacientesAsync(nome);
 
             if (lista.Count == 0) return NoContent();
+
+            return Ok(lista);
+        }
+
+        /// <summary>
+        /// Pegar quantidade pacientes que tomaram o medicamento
+        /// </summary>
+        /// <returns>ActionResult</returns>
+        /// <response code="200">Lista de Medicamentos e quantidade de pacientes que tomaram.</response>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
+        [HttpGet("quantos_pacientes")]
+        public ActionResult QuantosPacientesTomaram()
+        {
+            var lista = _repositorio.PegarQuantidadePacientesTomaram();
 
             return Ok(lista);
         }

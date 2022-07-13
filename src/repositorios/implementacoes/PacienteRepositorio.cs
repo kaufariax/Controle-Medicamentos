@@ -2,7 +2,9 @@
 using ControleMedicamentos.src.dtos;
 using ControleMedicamentos.src.modelos;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -68,6 +70,26 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
                 .Include(cm => cm.Medicamento)
                 .Where(cm => cm.Paciente.Nome == nome)
                 .ToListAsync();
+        }
+
+        /// <summary>
+        /// <para>Resumo: Método para pegar a quantidade de medicamentos tomados pelo paciente</para>
+        /// </summary>
+        /// <return>Paciente e quantidade de medicamentos que tomou></return>
+        public IEnumerable PegarQuantidadeMedicamentosTomados()
+        {
+            var lista = _contexto.ControleDados
+                .Include(cm => cm.Paciente)
+                .Include(cm => cm.Medicamento)
+                .ToList()
+                .GroupBy(p => p.Paciente.Nome)
+                .Select(s => new
+                {
+                    Paciente = s.Key,
+                    Quantidade = s.Count()
+                });
+
+            return lista;
         }
 
         #endregion
