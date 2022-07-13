@@ -1,5 +1,4 @@
-﻿
-namespace ControleMedicamentos.src.dtos
+﻿namespace ControleMedicamentos.src.dtos
 {
     /// <summary>
     /// <para>Resumo: Classe espelho para criar um novo controle de dados</para>

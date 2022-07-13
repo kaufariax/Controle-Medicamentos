@@ -33,8 +33,8 @@ namespace ControleMedicamentos.src.controladores
         /// Pegar todos os pacientes
         /// </summary>
         /// <returns>ActionResult</returns>
-        /// <response code="200">Lista de pacientes</response>
-        /// <response code="204">Lista vazia</response>
+        /// <response code="200">Lista de pacientes.</response>
+        /// <response code="204">Lista vazia.</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Paciente))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet("todos")]
@@ -50,25 +50,27 @@ namespace ControleMedicamentos.src.controladores
         /// Pegar lista de medicamentos tomados
         /// </summary>
         /// <returns>ActionResult</returns>
-        /// <response code="200">Lista de Controle de Dados com os Medicamentos</response>
-        /// <response code="204">Lista vazia</response>
+        /// <response code="200">Lista de Controle de Dados com os Medicamentos.</response>
+        /// <response code="204">O paciente ainda não tomou um medicamento.</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet("medicamentos")]
         public async Task<ActionResult> PegarMedicamentosTomadosAsync([FromQuery] string nome)
         {
-            var lista = await _repositorio.PegarMedicamentosTomadosAsync(nome);
 
-            if (lista.Count < 1) return NoContent();
+                var lista = await _repositorio.PegarMedicamentosTomadosAsync(nome);
 
-            return Ok(lista);
+                if (lista.Count < 1) return NoContent();
+
+                return Ok(lista);
+            
         }
 
         /// <summary>
         /// Pegar quantidade de medicamentos tomados
         /// </summary>
         /// <returns>ActionResult</returns>
-        /// <response code="200">Lista de Pacientes e quantidade de medicamentos que tomaram.</response>
+        /// <response code="200">Lista de Pacientes que tomaram medicamentos e quantidade que tomaram.</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
         [HttpGet("quantos_medic")]
         public ActionResult QuantosMedicamentosTomados()
@@ -92,7 +94,7 @@ namespace ControleMedicamentos.src.controladores
         ///     }
         ///
         /// </remarks>
-        /// <response code="201">Retorna paciente criado</response>
+        /// <response code="201">Retorna paciente criado.</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Paciente))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost]

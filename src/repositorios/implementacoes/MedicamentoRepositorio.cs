@@ -51,7 +51,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para pegar todos os medicamentos</para>
         /// </summary>
-        /// <return>Lista Medicamento></return>
+        /// <return>Lista de Medicamento></return>
         public async Task<List<Medicamento>> PegarTodosMedicamentosAsync()
         {
             return await _contexto.Medicamentos.ToListAsync();
@@ -60,7 +60,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para pegar todos os pacientes que tomaram o remédio</para>
         /// </summary>
-        /// <return>Lista ControleDados></return>
+        /// <return>Lista de Controle de Dados></return>
         public async Task<List<ControleDados>> PegarControlePacientesAsync(string nome)
         {
             return await _contexto.ControleDados

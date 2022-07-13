@@ -35,8 +35,8 @@ namespace ControleMedicamentos.src.controladores
         /// Pegar todos os medicamentos
         /// </summary>
         /// <returns>ActionResult</returns>
-        /// <response code="200">Lista de medicamentos</response>
-        /// <response code="204">Lista vazia</response>
+        /// <response code="200">Lista de medicamentos.</response>
+        /// <response code="204">Lista vazia.</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Medicamento))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet("todos")]
@@ -53,8 +53,8 @@ namespace ControleMedicamentos.src.controladores
         /// Pegar lista de pacientes que tomaram o medicamento
         /// </summary>
         /// <returns>ActionResult</returns>
-        /// <response code="200">Lista de Controle de Dados com os Pacientes</response>
-        /// <response code="204">Lista vazia</response>
+        /// <response code="200">Lista de Controle de Dados com os Pacientes.</response>
+        /// <response code="204">Nenhum paciente tomou esse medicamento.</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet("pacientes")]
@@ -71,7 +71,7 @@ namespace ControleMedicamentos.src.controladores
         /// Pegar quantidade pacientes que tomaram o medicamento
         /// </summary>
         /// <returns>ActionResult</returns>
-        /// <response code="200">Lista de Medicamentos e quantidade de pacientes que tomaram.</response>
+        /// <response code="200">Lista de Medicamentos que foram tomados e quantidade de pacientes que tomaram.</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
         [HttpGet("quantos_pacientes")]
         public ActionResult QuantosPacientesTomaram()
@@ -95,7 +95,7 @@ namespace ControleMedicamentos.src.controladores
         ///     }
         ///
         /// </remarks>
-        /// <response code="201">Retorna medicamento criado</response>
+        /// <response code="201">Retorna medicamento criado.</response>
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Medicamento))]
         [HttpPost]
         public async Task<ActionResult> NovoMedicamentoAsync([FromBody] MedicamentoDTO medicamento)

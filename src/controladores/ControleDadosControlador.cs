@@ -1,5 +1,4 @@
 ﻿using ControleMedicamentos.src.dtos;
-using ControleMedicamentos.src.modelos;
 using ControleMedicamentos.src.repositorios;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -50,8 +49,8 @@ namespace ControleMedicamentos.src.controladores
         ///      }
         ///
         /// </remarks>
-        /// <response code="201">Retorna controle de dados criado</response>
-        /// <response code="400">Erro na requisição</response>
+        /// <response code="201">Retorna controle de dados criado.</response>
+        /// <response code="400">Erro na requisição.</response>
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ControleDadosDTO))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost]

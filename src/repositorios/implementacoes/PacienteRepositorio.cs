@@ -2,7 +2,6 @@
 using ControleMedicamentos.src.dtos;
 using ControleMedicamentos.src.modelos;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,7 +61,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para pegar todos os medicamentos tomados pelo paciente</para>
         /// </summary>
-        /// <return>Lista ControleDados></return>
+        /// <return>Lista de Controle de Dados></return>
         public async Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nome)
         {
             return await _contexto.ControleDados
@@ -75,9 +74,10 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <summary>
         /// <para>Resumo: Método para pegar a quantidade de medicamentos tomados pelo paciente</para>
         /// </summary>
-        /// <return>Paciente e quantidade de medicamentos que tomou></return>
+        /// <return>Paciente que tomou medicamento e quantidade que tomou></return>
         public IEnumerable PegarQuantidadeMedicamentosTomados()
-        {
+        { 
+
             var lista = _contexto.ControleDados
                 .Include(cm => cm.Paciente)
                 .Include(cm => cm.Medicamento)
@@ -91,6 +91,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
 
             return lista;
         }
+        
 
         #endregion
     }
