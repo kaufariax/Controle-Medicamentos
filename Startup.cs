@@ -27,14 +27,19 @@ namespace ControleMedicamentos
         public void ConfigureServices(IServiceCollection services)
         {
             //Banco de Dados
-            IConfigurationRoot config = new ConfigurationBuilder()
-              .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-              .AddJsonFile("appsettings.json")
-              .Build();
-
-            services.AddDbContext<CM_Contexto>(
-            opt =>
-            opt.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+            if(Configuration ["Enviroment:Start"] == "PROD")
+            {
+                services.AddEntityFrameworkNpgsql()
+                    .AddDbContext<CM_Contexto>(
+                    opt =>
+                    opt.UseNpgsql(Configuration["ConnectionStringsProd:DefaultConnection"]));
+            }
+            else
+            {
+                services.AddDbContext<CM_Contexto>(
+                    opt =>
+                    opt.UseSqlServer(Configuration["ConnectionStringsDev:DefaultConnection"]));
+            }
 
             // Repositorios
             services.AddScoped<IPaciente, PacienteRepositorio>();
@@ -72,7 +77,7 @@ namespace ControleMedicamentos
                     c.RoutePrefix = string.Empty;
                 });
             }
-
+            // Ambiente de Produção
             contexto.Database.EnsureCreated();
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
