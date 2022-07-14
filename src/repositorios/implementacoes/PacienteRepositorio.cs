@@ -14,7 +14,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
     /// <para>Resumo: Classe responsavel por implementar IPaciente</para>
     /// <para>Criado por: Kauane Farias</para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 12/07/2022</para>
+    /// <para>Data: 10/07/2022</para>
     /// </summary>
     public class PacienteRepositorio : IPaciente
     {

@@ -7,7 +7,7 @@ namespace ControleMedicamentos.src.modelos
     /// <para>Resumo: Classe responsavel por representar controle_dados no banco.</para>
     /// <para>Criado por: Kauane Farias</para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 12/07/2022</para>
+    /// <para>Data: 09/07/2022</para>
     /// </summary>
     [Table("controle_dados")]
     public class ControleDados

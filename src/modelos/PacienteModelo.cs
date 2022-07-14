@@ -9,7 +9,7 @@ namespace ControleMedicamentos.src.modelos
     /// <para>Resumo: Classe responsavel por representar tb_pacientes no banco.</para>
     /// <para>Criado por: Kauane Farias</para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 12/07/2022</para>
+    /// <para>Data: 09/07/2022</para>
     /// </summary>
     [Table("tb_pacientes")]
     public class Paciente
