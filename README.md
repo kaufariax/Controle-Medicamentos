@@ -17,8 +17,7 @@
 
 ## Descrição da API
 
-<p>O projeto se trata de uma API Rest que foi desenvolvida em .NET utilizando o Entity Framework como ORM e tem como objetivo principal controlar os dados e relações de pacientes
-e medicamentos, algumas de suas principais são:</p>
+<p>O projeto se trata de uma API Rest que foi desenvolvida em .NET utilizando o Entity Framework como ORM e tem como objetivo principal controlar os dados e relações de pacientes e medicamentos, algumas de suas principais funções são:</p>
 <li>Cadastrar um novo paciente</li>
 <li>Cadastrar um novo medicamento</li>
 <li>Ler a lista de pacientes cadastrados</li>
