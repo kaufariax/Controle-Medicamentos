@@ -39,7 +39,7 @@
 ## Autor
 ---
 <a href="https://www.linkedin.com/in/kauane-farias/">
- <img style="border-radius: 50%;" src="https://i.imgur.com/pcIxNWh.jpg" width="100px;" alt="KauaneFarias"/>
+ <img style="border-radius: 50%;" src="https://i.imgur.com/pcIxNWh.jpg" width="200px;" alt="KauaneFarias"/>
  <br />
  <sub><b>Kauane Farias</b></sub></a> <a href="https://www.linkedin.com/in/kauane-farias/" title="Kauane Farias">🚀</a>
  </br>
