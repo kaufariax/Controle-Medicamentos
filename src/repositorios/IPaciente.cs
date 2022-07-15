@@ -16,7 +16,7 @@ namespace ControleMedicamentos.src.repositorios
     {
         Task NovoPacienteAsync(PacienteDTO paciente);
         Task<List<Paciente>> PegarTodosPacientesAsync();
-        Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nome);
+        Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nomeDoPaciente);
         IEnumerable PegarQuantidadeMedicamentosTomados();
     }
 }

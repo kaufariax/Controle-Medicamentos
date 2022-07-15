@@ -61,12 +61,12 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <para>Resumo: Método assíncrono para pegar todos os pacientes que tomaram o remédio</para>
         /// </summary>
         /// <return>Lista de Controle de Dados></return>
-        public async Task<List<ControleDados>> PegarControlePacientesAsync(string nome)
+        public async Task<List<ControleDados>> PegarControlePacientesAsync(string nomeDoMedicamento)
         {
             return await _contexto.ControleDados
                 .Include(cm => cm.Medicamento)
                 .Include(cm => cm.Paciente)
-                .Where(cm => cm.Medicamento.Nome.Contains(nome))
+                .Where(cm => cm.Medicamento.Nome.Contains(nomeDoMedicamento))
                 .ToListAsync();
         }
 

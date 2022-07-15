@@ -27,7 +27,7 @@ namespace ControleMedicamentos
         public void ConfigureServices(IServiceCollection services)
         {
             //Banco de Dados
-            if(Configuration ["Enviroment:Start"] == "PROD")
+            if(Configuration["Enviroment:Start"] == "PROD")
             {
                 services.AddEntityFrameworkNpgsql()
                     .AddDbContext<CM_Contexto>(

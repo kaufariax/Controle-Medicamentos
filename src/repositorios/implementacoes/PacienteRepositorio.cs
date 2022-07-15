@@ -62,12 +62,12 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <para>Resumo: Método assíncrono para pegar todos os medicamentos tomados pelo paciente</para>
         /// </summary>
         /// <return>Lista de Controle de Dados></return>
-        public async Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nome)
+        public async Task<List<ControleDados>> PegarMedicamentosTomadosAsync(string nomeDoPaciente)
         {
             return await _contexto.ControleDados
                 .Include(cm => cm.Paciente)
                 .Include(cm => cm.Medicamento)
-                .Where(cm => cm.Paciente.Nome == nome)
+                .Where(cm => cm.Paciente.Nome == nomeDoPaciente)
                 .ToListAsync();
         }
 

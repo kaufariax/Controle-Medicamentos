@@ -55,10 +55,10 @@ namespace ControleMedicamentos.src.controladores
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet("medicamentos")]
-        public async Task<ActionResult> PegarMedicamentosTomadosAsync([FromQuery] string nome)
+        public async Task<ActionResult> PegarMedicamentosTomadosAsync([FromQuery] string nomeDoPaciente)
         {
 
-                var lista = await _repositorio.PegarMedicamentosTomadosAsync(nome);
+                var lista = await _repositorio.PegarMedicamentosTomadosAsync(nomeDoPaciente);
 
                 if (lista.Count < 1) return NoContent();
 
