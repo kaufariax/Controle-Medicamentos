@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace ControleMedicamentos.src.repositorios.implementacoes
 {
     /// <summary>
-    /// <para>Resumo: Classe responsavel por implementar IControleDados</para>
+    /// <para>Resumo: Classe responsavel por implementar IEventoMedicacao</para>
     /// <para>Criado por: Kauane Farias</para>
     /// <para>Versão: 1.0</para>
     /// <para>Data: 10/07/2022</para>
     /// </summary>
-    public class ControleDadosRepositorio : IControleDados
+    public class EventoMedicacaoRepositorio : IEventoMedicacao
     {
         #region Atributos
 
@@ -24,7 +24,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
 
         #region Construtores
 
-        public ControleDadosRepositorio(CM_Contexto contexto)
+        public EventoMedicacaoRepositorio(CM_Contexto contexto)
         {
             _contexto = contexto;
         }
@@ -34,20 +34,20 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         #region Métodos
 
         /// <summary>
-        /// <para>Resumo: Método assíncrono para salvar um novo controle de dados</para>
+        /// <para>Resumo: Método assíncrono para salvar um novo evento de medicação</para>
         /// </summary>
-        /// <param name="controleDados">Construtor para cadastrar um Controle de Dados</param>
+        /// <param name="eventoMedicacao">Construtor para cadastrar um Evento de Medicação</param>
         /// <exception cref="Exception">Nome não pode ser nulo</exception>
-        public async Task NovoRegistroDadosAsync(ControleDadosDTO controleDados)
+        public async Task NovoRegistroMedicacaoAsync(EventoMedicacaoDTO eventoMedicacao)
         {
-            if (!ExistePacienteNome(controleDados.Paciente.Nome)) throw new Exception("Nome do paciente não encontrado");
+            if (!ExistePacienteNome(eventoMedicacao.Paciente.Nome)) throw new Exception("Nome do paciente não encontrado");
 
-            if (!ExisteMedicamentoNome(controleDados.Medicamento.Nome)) throw new Exception("Nome do medicamento não encontrado");
+            if (!ExisteMedicamentoNome(eventoMedicacao.Medicamento.Nome)) throw new Exception("Nome do medicamento não encontrado");
 
-            await _contexto.ControleDados.AddAsync(new ControleDados
+            await _contexto.EventoMedicacao.AddAsync(new EventoMedicacao
             {
-                Paciente = await _contexto.Pacientes.FirstOrDefaultAsync(p => p.Nome == controleDados.Paciente.Nome),
-                Medicamento = await _contexto.Medicamentos.FirstOrDefaultAsync(m => m.Nome == controleDados.Medicamento.Nome)
+                Paciente = await _contexto.Pacientes.FirstOrDefaultAsync(p => p.Nome == eventoMedicacao.Paciente.Nome),
+                Medicamento = await _contexto.Medicamentos.FirstOrDefaultAsync(m => m.Nome == eventoMedicacao.Medicamento.Nome)
             });
             await _contexto.SaveChangesAsync();
 

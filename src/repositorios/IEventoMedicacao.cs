@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 namespace ControleMedicamentos.src.repositorios
 {
     /// <summary>
-    /// <para>Resumo: Responsavel por representar método de criação do controle de dados</para>
+    /// <para>Resumo: Responsavel por representar método de criação do evento de medicação</para>
     /// <para>Criado por: Kauane Farias</para>
     /// <para>Versão 1.0</para>
     /// <para>Data: 10/07/2022</para>
     /// </summary>
-    public interface IControleDados
+    public interface IEventoMedicacao
     {
-        Task NovoRegistroDadosAsync(ControleDadosDTO controleDados);
+        Task NovoRegistroMedicacaoAsync(EventoMedicacaoDTO eventoMedicacao);
     }
 }

@@ -1,17 +1,17 @@
 ﻿namespace ControleMedicamentos.src.dtos
 {
     /// <summary>
-    /// <para>Resumo: Classe espelho para criar um novo controle de dados</para>
+    /// <para>Resumo: Classe espelho para criar um novo evento de medicação</para>
     /// <para>Criado por: Kauane Farias</para>
     /// <para>Versão 1.0</para>
     /// <para>Data: 12/07/2022</para>
     /// </summary>
-    public class ControleDadosDTO
+    public class EventoMedicacaoDTO
     { 
         public PacienteDTO Paciente { get; set; }
         public MedicamentoDTO Medicamento { get; set; }
 
-        public ControleDadosDTO(PacienteDTO paciente, MedicamentoDTO medicamento)
+        public EventoMedicacaoDTO(PacienteDTO paciente, MedicamentoDTO medicamento)
         {
             Paciente = paciente;
             Medicamento = medicamento;

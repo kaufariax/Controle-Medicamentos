@@ -60,10 +60,10 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para pegar todos os pacientes que tomaram o remédio</para>
         /// </summary>
-        /// <return>Lista de Controle de Dados></return>
-        public async Task<List<ControleDados>> PegarControlePacientesAsync(string nomeDoMedicamento)
+        /// <return>Lista de Evento de Medicação></return>
+        public async Task<List<EventoMedicacao>> PegarControlePacientesAsync(string nomeDoMedicamento)
         {
-            return await _contexto.ControleDados
+            return await _contexto.EventoMedicacao
                 .Include(cm => cm.Medicamento)
                 .Include(cm => cm.Paciente)
                 .Where(cm => cm.Medicamento.Nome.Contains(nomeDoMedicamento))
@@ -76,7 +76,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <return>Medicamento e quantidade de pacientes que tomaram></return>
         public IEnumerable PegarQuantidadePacientesTomaram()
         {
-            var lista = _contexto.ControleDados
+            var lista = _contexto.EventoMedicacao
             .Include(cm => cm.Medicamento)
             .Include(cm => cm.Paciente)
             .ToList()

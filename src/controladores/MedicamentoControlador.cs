@@ -53,9 +53,9 @@ namespace ControleMedicamentos.src.controladores
         /// Pegar lista de pacientes que tomaram o medicamento
         /// </summary>
         /// <returns>ActionResult</returns>
-        /// <response code="200">Lista de Controle de Dados com os Pacientes.</response>
+        /// <response code="200">Lista de Evento de Medicação com os Pacientes.</response>
         /// <response code="204">Nenhum paciente tomou esse medicamento.</response>
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoMedicacao))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet("pacientes")]
         public async Task<ActionResult> PegarControlePacientesAsync([FromQuery] string nomeDoMedicamento)
@@ -72,7 +72,7 @@ namespace ControleMedicamentos.src.controladores
         /// </summary>
         /// <returns>ActionResult</returns>
         /// <response code="200">Lista de Medicamentos que foram tomados e quantidade de pacientes que tomaram.</response>
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ControleDados))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoMedicacao))]
         [HttpGet("quantos_pacientes")]
         public ActionResult QuantosPacientesTomaram()
         {

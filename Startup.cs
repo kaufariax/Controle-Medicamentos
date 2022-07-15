@@ -44,7 +44,7 @@ namespace ControleMedicamentos
             // Repositorios
             services.AddScoped<IPaciente, PacienteRepositorio>();
             services.AddScoped<IMedicamento, MedicamentoRepositorio>();
-            services.AddScoped<IControleDados, ControleDadosRepositorio>();
+            services.AddScoped<IEventoMedicacao, EventoMedicacaoRepositorio>();
 
             //Controladores
             services.AddCors();

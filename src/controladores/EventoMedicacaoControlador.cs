@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 namespace ControleMedicamentos.src.controladores
 {
     [ApiController]
-    [Route("api/ControleDados")]
+    [Route("api/EventoMedicacao")]
     [Produces("application/json")]
-    public class ControleDadosControlador : ControllerBase
+    public class EventoMedicacaoControlador : ControllerBase
     {
 
         #region Atributos
 
-        private readonly IControleDados _repositorio;
+        private readonly IEventoMedicacao _repositorio;
 
         #endregion
 
         #region Construtores
 
-        public ControleDadosControlador(IControleDados repositorio)
+        public EventoMedicacaoControlador(IEventoMedicacao repositorio)
         {
             _repositorio = repositorio;
         }
@@ -31,14 +31,14 @@ namespace ControleMedicamentos.src.controladores
         #region Métodos
 
         /// <summary>
-        /// Criar novo controle de dados
+        /// Criar novo evento de medicação
         /// </summary>
-        /// <param name="controleDados">Construtor para criar um controle de dados</param>
+        /// <param name="eventoMedicacao">Construtor para criar um evento de medicação</param>
         /// <returns>ActionResult</returns>
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     POST /api/ControleDados
+        ///     POST /api/EventoMedicacao
         ///     {
         ///      "paciente": {
         ///       "nome": "Kauane Farias"
@@ -49,17 +49,17 @@ namespace ControleMedicamentos.src.controladores
         ///      }
         ///
         /// </remarks>
-        /// <response code="201">Retorna controle de dados criado.</response>
+        /// <response code="201">Retorna evento de medicação criado.</response>
         /// <response code="400">Erro na requisição.</response>
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ControleDadosDTO))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(EventoMedicacaoDTO))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost]
-        public async Task<ActionResult> NovoRegistroDadosAsync([FromBody] ControleDadosDTO controleDados)
+        public async Task<ActionResult> NovoRegistroMedicacaoAsync([FromBody] EventoMedicacaoDTO eventoMedicacao)
         {
             try
             {
-                await _repositorio.NovoRegistroDadosAsync(controleDados);
-                return Created($"api/ControleDados", controleDados);
+                await _repositorio.NovoRegistroMedicacaoAsync(eventoMedicacao);
+                return Created($"api/ControleDados", eventoMedicacao);
             }
             catch (Exception ex)
             {
