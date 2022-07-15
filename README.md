@@ -1,5 +1,5 @@
 <h1 align="center">Controle de Medicamentos</h1>
-<div align="center"><a href="https://controle-medicamentos.herokuapp.com/"><img src="https://i.imgur.com/9iCgL2y.png" width="950px;" alt="Swagger"/></div>
+<div align="center"><a href="https://controle-medicamentos.herokuapp.com/"><img src="https://i.imgur.com/b0fnew0.png" width="950px;" alt="Swagger"/></div>
 <p align="center">
 <a href="https://github.com/kaufariax/Controle-Medicamentos/"><strong>Explore the docs »</strong></a>
 <br/>
