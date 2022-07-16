@@ -9,7 +9,7 @@ namespace ControleMedicamentos.src.repositorios
     /// <summary>
     /// <para>Resumo: Responsavel por representar método de criação e consultas do medicamento</para>
     /// <para>Criado por: Kauane Farias</para>
-    /// <para>Versão 1.0</para>
+    /// <para>Versão 1.1</para>
     /// <para>Data: 10/07/2022</para>
     /// </summary>
     public interface IMedicamento
@@ -17,6 +17,6 @@ namespace ControleMedicamentos.src.repositorios
         Task NovoMedicamentoAsync(MedicamentoDTO medicamento);
         Task<List<Medicamento>> PegarTodosMedicamentosAsync();
         Task<List<EventoMedicacao>> PegarControlePacientesAsync(string nomeDoMedicamento);
-        IEnumerable PegarQuantidadePacientesTomaram();
+        IEnumerable PegarQuantidadePacientesTomaram(string nomeDoMedicamento);
     }
 }

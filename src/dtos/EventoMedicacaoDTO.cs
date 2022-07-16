@@ -3,7 +3,7 @@
     /// <summary>
     /// <para>Resumo: Classe espelho para criar um novo evento de medicação</para>
     /// <para>Criado por: Kauane Farias</para>
-    /// <para>Versão 1.0</para>
+    /// <para>Versão 1.1</para>
     /// <para>Data: 12/07/2022</para>
     /// </summary>
     public class EventoMedicacaoDTO

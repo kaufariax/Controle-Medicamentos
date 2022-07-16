@@ -6,7 +6,7 @@ namespace ControleMedicamentos.src.contexto
     /// <summary>
     /// <para>Resumo: Classe contexto, responsavel por carregar contexto e definir DbSets</para>
     /// <para>Criado por: Kauane Farias</para>
-    /// <para>Versão: 1.0</para>
+    /// <para>Versão: 1.1</para>
     /// <para>Data: 09/07/2022</para>
     /// </summary>
     public class CM_Contexto : DbContext

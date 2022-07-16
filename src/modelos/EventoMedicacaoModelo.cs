@@ -6,7 +6,7 @@ namespace ControleMedicamentos.src.modelos
     /// <summary>
     /// <para>Resumo: Classe responsavel por representar evento_medicacao no banco.</para>
     /// <para>Criado por: Kauane Farias</para>
-    /// <para>Versão: 1.0</para>
+    /// <para>Versão: 1.1</para>
     /// <para>Data: 09/07/2022</para>
     /// </summary>
     [Table("evento_medicacao")]

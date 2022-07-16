@@ -2,6 +2,7 @@
 using ControleMedicamentos.src.dtos;
 using ControleMedicamentos.src.modelos;
 using Microsoft.EntityFrameworkCore;
+using MoreLinq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
     /// <summary>
     /// <para>Resumo: Classe responsavel por implementar IPaciente</para>
     /// <para>Criado por: Kauane Farias</para>
-    /// <para>Versão: 1.0</para>
+    /// <para>Versão: 1.1</para>
     /// <para>Data: 10/07/2022</para>
     /// </summary>
     public class PacienteRepositorio : IPaciente
@@ -75,13 +76,15 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
         /// <para>Resumo: Método para pegar a quantidade de medicamentos tomados pelo paciente</para>
         /// </summary>
         /// <return>Paciente que tomou medicamento e quantidade que tomou></return>
-        public IEnumerable PegarQuantidadeMedicamentosTomados()
-        { 
+        public IEnumerable PegarQuantidadeMedicamentosTomados(string nomeDoPaciente)
+        {
 
             var lista = _contexto.EventoMedicacao
                 .Include(cm => cm.Paciente)
                 .Include(cm => cm.Medicamento)
+                .Where(cm => cm.Paciente.Nome == nomeDoPaciente)
                 .ToList()
+                .DistinctBy(x => x.Medicamento.Nome)
                 .GroupBy(p => p.Paciente.Nome)
                 .Select(s => new
                 {

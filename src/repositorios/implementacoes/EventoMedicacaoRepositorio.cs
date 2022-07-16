@@ -11,7 +11,7 @@ namespace ControleMedicamentos.src.repositorios.implementacoes
     /// <summary>
     /// <para>Resumo: Classe responsavel por implementar IEventoMedicacao</para>
     /// <para>Criado por: Kauane Farias</para>
-    /// <para>Versão: 1.0</para>
+    /// <para>Versão: 1.1</para>
     /// <para>Data: 10/07/2022</para>
     /// </summary>
     public class EventoMedicacaoRepositorio : IEventoMedicacao

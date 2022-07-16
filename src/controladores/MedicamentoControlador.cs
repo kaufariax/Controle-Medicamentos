@@ -74,9 +74,9 @@ namespace ControleMedicamentos.src.controladores
         /// <response code="200">Lista de Medicamentos que foram tomados e quantidade de pacientes que tomaram.</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EventoMedicacao))]
         [HttpGet("quantos_pacientes")]
-        public ActionResult QuantosPacientesTomaram()
+        public ActionResult QuantosPacientesTomaram(string nomeDoMedicamento)
         {
-            var lista = _repositorio.PegarQuantidadePacientesTomaram();
+            var lista = _repositorio.PegarQuantidadePacientesTomaram(nomeDoMedicamento);
 
             return Ok(lista);
         }
